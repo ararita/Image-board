@@ -17,7 +17,7 @@
             axios.get("/images").then(function(response) {
                 //.then runs when we get resposne from server
                 //when there is something in the image array, v-for in html runs: loops and renders pictures.
-                self.images = response.data; //why not response.data.images?
+                self.images = response.data.reverse(); //why not response.data.images?
             });
         }, //mounted ends here
         methods: {
