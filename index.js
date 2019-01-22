@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const db = require("./db");
+const config = require("./config");
 
 app.use(bodyParser.json());
 
@@ -29,14 +30,23 @@ const uploader = multer({
     }
 });
 
+const s3 = require("./s3");
 //----route------
 
 //uploader above has .single, to make sure that it's file;
 //puts the file in the uploads dir and changes name of file to be some unique 24 character string
-app.post("/upload", uploader.single("file"), (req, res) => {
+app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("POST /upload");
     console.log("req body: ", req.body);
     console.log("req file: ", req.file);
+    db.addImage(
+        config.s3Url + req.file.filename,
+        req.body.name,
+        req.body.title,
+        req.body.description
+    ).then(({ rows }) => {
+        res.json(rows[0]);
+    });
 });
 
 //next steps: take the file name, title, decription name and in the images tabele
