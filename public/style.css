@@ -8,7 +8,18 @@
     /* display: flex; */
 /* } */
 
+* {
+    font-family: Helvetica;
+    background-color: #323335;
+}
+
+h1 {
+    color: #a2a2a2;
+}
+
 #image-box {
+    position: absolute;
+    top: 20%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,15 +27,34 @@
 }
 
 .img-card {
-    border: 1px solid black;
+    border: 1px solid #a2a2a2;
     border-radius: 5px;
     margin: 5px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+    background-color: #a2a2a2;
+
     /* display: inline-block; */
     /* width: 280px; */
 }
 
+.img-card:hover {
+    transform: scale(1.1);
+}
+
+form {
+    position: absolute;
+    top: 80px;
+    text-align: center;
+}
+
 p {
+    position: relative;
     margin: 2px;
+    background-color: #a2a2a2;
+    text-align: center;
+    bottom: 5px;
+    font-family: Helvetica;
+    font-weight: lighter;
 }
 
 img {
@@ -33,4 +63,32 @@ img {
     object-fit: cover;
     margin: 5px;
     padding: 5px;
+    background-color: #a2a2a2;
+}
+
+.input-box {
+    display: inline-block;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+}
+
+#file {
+    width: 200px;
+    height: 30px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    right: 3%;
+    border-radius: 25px;
+    background-color: #a2a2a2;
 }
