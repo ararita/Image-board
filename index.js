@@ -33,7 +33,7 @@ const uploader = multer({
 const s3 = require("./s3");
 //----route------
 
-//uploader above has .single, to make sure that it's file;
+//uploader below has .single, to make sure that it's a file;
 //puts the file in the uploads dir and changes name of file to be some unique 24 character string
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("POST /upload");
@@ -49,11 +49,25 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     });
 });
 
-//next steps: take the file name, title, decription name and in the images tabele
-//make new image render automatically on the screen (without reloading the page)
+//next steps: take the file name, title, decription name and in the images tabele make new image to render automatically on the screen (without reloading the page)
 
 app.get("/images", (req, res) => {
     db.getImages().then(dbResult => {
+        res.json(dbResult.rows);
+    });
+});
+
+app.get("/image/:id", (req, res) => {
+    db.getImageData(req.params.id).then(dbResult => {
+        console.log("dbResult", dbResult.rows);
+        res.json(dbResult.rows);
+    });
+});
+//from vue take the image id, pass it to the component as a prop;
+//do it in both script and index.js
+app.get("/image:id/comments", (req, res) => {
+    db.getImageComments(req.params.id).then(dbResult => {
+        console.log("dbResult", dbResult.rows);
         res.json(dbResult.rows);
     });
 });

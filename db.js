@@ -18,3 +18,20 @@ module.exports.addImage = function(url, username, title, description) {
         [url, username, title, description]
     );
 };
+
+module.exports.getImageData = function(image_id) {
+    return db.query(
+        `SELECT * FROM images
+    WHERE id = $1`,
+        [image_id]
+    );
+};
+
+module.exports.getImageComments = function(image_id) {
+    return db.query(
+        `
+        SELECT * FROM comments
+        WHERE img_id =$1`,
+        [image_id]
+    );
+};
