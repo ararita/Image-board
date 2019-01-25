@@ -97,8 +97,8 @@ button {
     left: 0;
     right: 0;
 
-    background: linear-gradient(#323335, #848485);
-    /* opacity: 0.75; */
+    /* background: linear-gradient(#323335, #848485); */
+    background-color: #000000b1;
 }
 
 .modal-container button {
@@ -114,6 +114,7 @@ button {
 .img-section {
     background-color: #a2a2a2;
     border: 1px solid white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
 
     width: 600px;
     height: 700px;
@@ -128,3 +129,20 @@ button {
 
 .modal-img {
 }
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    top: 20%;
+    left: 10%;
+    background-color: white;
+}
+
+/* .comment-section button {
+    position: relative;
+    top: 20%;
+    left: 30%;
+} */

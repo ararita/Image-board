@@ -8,7 +8,7 @@ if (process.env.DATABASE_URL) {
 }
 
 module.exports.getImages = () => {
-    return db.query(`SELECT * FROM images`);
+    return db.query(`SELECT * FROM images ORDER BY id DESC LIMIT 5`);
 };
 
 module.exports.addImage = function(url, username, title, description) {
@@ -35,3 +35,22 @@ module.exports.getImageComments = function(image_id) {
         [image_id]
     );
 };
+
+module.exports.addImageComment = function(name, text, image_id) {
+    return db.query(
+        `INSERT INTO comments (username, comment, img_id)
+        VALUES ($1, $2, $3)
+        RETURNING *
+        `,
+        [name, text, image_id]
+    );
+};
+
+module.exports.getMoreImages = lastId =>
+    db.query(
+        `SELECT * FROM images
+        WHERE id < $1
+        ORDER BY id DESC
+        LIMIT 5`,
+        [lastId]
+    );

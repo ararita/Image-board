@@ -26,6 +26,7 @@
                 <img v-bind:src="imgInfo.url">
                 <p>{{imgInfo.title}}</p>
             </div>
+            <button @click="seeMore" v-if="more">see more</button>
 
         </div>
 
@@ -37,13 +38,27 @@
     </div>
 
     <script type="text/x-template" id="modal-template">
-    <div class="modal-container">
-<button @click = "$emit('close')">close</button>
+    <div class="modal-container" @click.self = "$emit('close')">
+        <button @click = "$emit('close')">close</button>
         <div class='img-section'>
             <img class='modal-img' :src='url'>
             <h2>{{title}}</h2>
             <p>{{description}}</p>
             <h5>uploaded by {{username}} at {{uploadTime}}</h5>
+        </div>
+        <div class='comment-section'>
+                <h5>Add a comment:</h5>
+                <input v-model="comment.name" type = "text" name= "name" placeholder="name"></input>
+                <input v-model="comment.text" type = "text" name= "text" placeholder="comment"></input>
+                <button @click='addImageComment'>submit</button>
+        </div>
+        <div class='comments-box'>
+            <div div v-for="commentInfo in comments" class="comment-card">
+
+                <p>{{commentInfo.comment}}</p>
+                <h5>{{commentInfo.username}} on  {{commentInfo.created_at}}</h5>
+
+            </div>
         </div>
     </div>
     </script>

@@ -49,8 +49,6 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     });
 });
 
-//next steps: take the file name, title, decription name and in the images tabele make new image to render automatically on the screen (without reloading the page)
-
 app.get("/images", (req, res) => {
     db.getImages().then(dbResult => {
         res.json(dbResult.rows);
@@ -65,10 +63,28 @@ app.get("/image/:id", (req, res) => {
 });
 //from vue take the image id, pass it to the component as a prop;
 //do it in both script and index.js
-app.get("/image:id/comments", (req, res) => {
+app.get("/image/:id/comments", (req, res) => {
     db.getImageComments(req.params.id).then(dbResult => {
         console.log("dbResult", dbResult.rows);
         res.json(dbResult.rows);
+    });
+});
+
+app.post("/comment/:id/add", (req, res) => {
+    console.log("req.body:", req.body);
+    console.log("req.params.id:", req.params.id);
+
+    db.addImageComment(req.body.name, req.body.text, req.params.id).then(
+        dbResult => {
+            console.log("results from comments: ", dbResult);
+            res.json(dbResult.rows);
+        }
+    );
+});
+
+app.post("/more", (req, res) => {
+    db.getMoreImages(req.body.lastId).then(dbResult => {
+        res.json(dbResult);
     });
 });
 
