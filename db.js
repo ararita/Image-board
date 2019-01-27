@@ -8,7 +8,7 @@ if (process.env.DATABASE_URL) {
 }
 
 module.exports.getImages = () => {
-    return db.query(`SELECT * FROM images ORDER BY id DESC LIMIT 5`);
+    return db.query(`SELECT * FROM images ORDER BY id DESC LIMIT 10`);
 };
 
 module.exports.addImage = function(url, username, title, description) {
