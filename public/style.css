@@ -37,10 +37,9 @@ form {
     text-align: center;
 }
 
-p {
+.img-card p {
     position: relative;
     margin: 2px;
-    background-color: #a2a2a2;
     text-align: center;
     bottom: 5px;
     font-family: Helvetica;
@@ -86,8 +85,6 @@ button {
     padding: 0;
     right: 3%;
     border-radius: 5px;
-
-    /* background-color: #a2a2a2; */
 }
 
 .modal-container {
@@ -96,9 +93,9 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: #000000b1;
 
     /* background: linear-gradient(#323335, #848485); */
-    background-color: #000000b1;
 }
 
 .modal-container button {
@@ -112,15 +109,16 @@ button {
 }
 
 .img-section {
+    /* background: linear-gradient(#c6c6c6, #848485); */
+
     background-color: #a2a2a2;
     border: 1px solid white;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
-
-    width: 600px;
-    height: 700px;
-    position: absolute;
+    overflow: auto;
+    width: 700px;
+    height: 750px;
+    position: relative;
     left: 28%;
-    top: 7%;
+    top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,21 +126,67 @@ button {
 }
 
 .modal-img {
+    padding: 0;
+}
+
+.img-section h2 {
+    margin: 5px;
+    font-weight: lighter;
+}
+
+.img-section p {
+    margin: 5px;
+}
+
+.img-section h5 {
+    margin: 5px;
+    font-weight: lighter;
 }
 
 .comment-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
-    width: 300px;
-    height: 400px;
-    top: 20%;
-    left: 10%;
-    background-color: white;
+    align-items: center;
+    margin: 0;
+    width: inherit;
+    height: 150px;
+    /* top: 30px; */
+
+    /* background-color: white; */
 }
 
-/* .comment-section button {
+.comments-box {
+    width: inherit;
+}
+
+.comment-card {
+    border: 1px solid white;
+    border-radius: 3px;
+    margin: 5px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    /* width: 100%; */
+}
+
+.comment-card:hover {
+    border: 1px solid dimgray;
+    opacity: 0.7;
+}
+
+.comment-card h5 {
+    font-weight: lighter;
+}
+.comment-section h3 {
+    margin: 5px;
+    font-weight: lighter;
+}
+
+.comment-section button {
     position: relative;
-    top: 20%;
-    left: 30%;
+    top: 4.5%;
+    left: 0.5%;
+}
+
+/* .comment-section button:hover {
+    border: 2px solid orange;
 } */
