@@ -137,7 +137,7 @@ new Vue({
                 })
                 .then(
                     function(result) {
-                        if (this.images[this.images.length - 1].id == 7) {
+                        if (this.images[this.images.length - 1].id == 18) {
                             this.more = false;
                         }
                         this.images = this.images.concat(result.data.rows);

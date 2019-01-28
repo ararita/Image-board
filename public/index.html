@@ -6,7 +6,7 @@
 </head>
 <body>
     <div id="main">
-        
+
 
 <h1>MOVIES IMAGE BOARD</h1>
 
@@ -14,7 +14,7 @@
     <div class="input-box">
 
         <input v-model="form.title" type = "text" name= "title" placeholder="movie title"></input>
-        <input v-model="form.name" type = "text" name= "name" placeholder="username"></input>
+        <input v-model="form.name" type = "text" name= "name" placeholder="username" required></input>
         <input v-model="form.description" type = "text" name= "description" placeholder="description"></input>
 
         <input id="file" type ="file" accept ="image/*"></input>
@@ -27,10 +27,10 @@
                 <img v-bind:src="imgInfo.url">
                 <p>{{imgInfo.title}}</p>
             </div>
-            <button @click="seeMore" v-if="more">see more</button>
 
             </div>
 
+            <button class="see-more" @click="seeMore" v-if="more">see more</button>
 
 
         <modal :image_id = "image_id" v-if="image_id" @close="hideModal">

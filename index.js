@@ -57,6 +57,7 @@ app.get("/images", (req, res) => {
 
 app.get("/image/:id", (req, res) => {
     db.getImageData(req.params.id).then(dbResult => {
+        console.log("REQ.PARAMS.yaaaaay: ", req.params);
         console.log("dbResult", dbResult.rows);
         res.json(dbResult.rows);
     });
