@@ -22,9 +22,6 @@ h1 {
     margin: 5px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
     background-color: #a2a2a2;
-
-    /* display: inline-block; */
-    /* width: 280px; */
 }
 
 .img-card:hover {
@@ -57,9 +54,6 @@ img {
 
 .input-box {
     display: inline-block;
-
-    /* display: flex;
-    flex-direction: row; */
 }
 
 input {
@@ -69,10 +63,6 @@ input {
     text-align: center;
     border-radius: 3px;
 }
-
-/* input:hover {
-    background-color: dimgray;
-} */
 
 #file {
     width: 200px;
@@ -94,8 +84,6 @@ button {
     left: 0;
     right: 0;
     background-color: #000000b1;
-
-    /* background: linear-gradient(#323335, #848485); */
 }
 
 .modal-container button {
@@ -109,8 +97,6 @@ button {
 }
 
 .img-section {
-    /* background: linear-gradient(#c6c6c6, #848485); */
-
     background-color: #a2a2a2;
     border: 1px solid white;
     overflow: auto;
@@ -151,9 +137,6 @@ button {
     margin: 0;
     width: inherit;
     height: 150px;
-    /* top: 30px; */
-
-    /* background-color: white; */
 }
 
 .comments-box {
@@ -165,7 +148,6 @@ button {
     border-radius: 3px;
     margin: 5px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
-    /* width: 100%; */
 }
 
 .comment-card:hover {
@@ -192,7 +174,3 @@ button {
     left: 45%;
     bottom: 20px;
 }
-
-/* .comment-section button:hover {
-    border: 2px solid orange;
-} */
