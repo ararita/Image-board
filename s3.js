@@ -11,7 +11,7 @@ if (process.env.NODE_ENV == "production") {
 const client = knox.createClient({
     key: secrets.AWS_KEY,
     secret: secrets.AWS_SECRET,
-    bucket: "spicedling"
+    bucket: "anankes-thread"
 });
 
 module.exports.upload = (req, res, next) => {
