@@ -33,12 +33,10 @@ const uploader = multer({
 const s3 = require("./s3");
 //----route------
 
-//uploader below has .single, to make sure that it's a file;
-//puts the file in the uploads dir and changes name of file to be some unique 24 character string
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
-    console.log("POST /upload");
-    console.log("req body: ", req.body);
-    console.log("req file: ", req.file);
+    // console.log("POST /upload");
+    // console.log("req body: ", req.body);
+    // console.log("req file: ", req.file);
     db.addImage(
         config.s3Url + req.file.filename,
         req.body.name,
@@ -57,27 +55,26 @@ app.get("/images", (req, res) => {
 
 app.get("/image/:id", (req, res) => {
     db.getImageData(req.params.id).then(dbResult => {
-        console.log("REQ.PARAMS.yaaaaay: ", req.params);
-        console.log("dbResult", dbResult.rows);
+        // console.log("REQ.PARAMS.yaaaaay: ", req.params);
+        // console.log("dbResult", dbResult.rows);
         res.json(dbResult.rows);
     });
 });
-//from vue take the image id, pass it to the component as a prop;
-//do it in both script and index.js
+
 app.get("/image/:id/comments", (req, res) => {
     db.getImageComments(req.params.id).then(dbResult => {
-        console.log("dbResult", dbResult.rows);
+        // console.log("dbResult", dbResult.rows);
         res.json(dbResult.rows);
     });
 });
 
 app.post("/comment/:id/add", (req, res) => {
-    console.log("req.body:", req.body);
-    console.log("req.params.id:", req.params.id);
+    // console.log("req.body:", req.body);
+    // console.log("req.params.id:", req.params.id);
 
     db.addImageComment(req.body.name, req.body.text, req.params.id).then(
         dbResult => {
-            console.log("results from comments: ", dbResult);
+            // console.log("results from comments: ", dbResult);
             res.json(dbResult.rows);
         }
     );

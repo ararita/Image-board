@@ -171,6 +171,6 @@ button {
 
 .see-more {
     position: absolute;
-    left: 45%;
-    bottom: 20px;
+    left: 50%;
+    top: 100%;
 }
